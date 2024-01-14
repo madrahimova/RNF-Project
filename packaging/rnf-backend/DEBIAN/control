@@ -1,0 +1,12 @@
+Source: rnf-backend
+Section: admin
+Priority: optional
+Maintainer: Daria Madrahimova <madrahim@cs.petrsu.ru>
+Build-Depends: python3-pip
+
+Package: rnf-backend
+Architecture: all
+Description: RNF Project Backend
+Depends: python3,
+         postgresql-client,
+         systemd

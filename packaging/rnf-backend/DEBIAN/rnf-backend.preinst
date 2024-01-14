@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Stopping RNF service"
+if [ "$(systemctl list-unit-files "rnf.service" | grep "rnf.service" > /dev/null; echo $?)" -eq 0 ]; then
+    systemctl stop rnf.service
+fi

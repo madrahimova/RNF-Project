@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+systemctl daemon-reload
+systemctl enable rnf.service
+
+echo "Starting RNF service"
+systemctl start rnf.service

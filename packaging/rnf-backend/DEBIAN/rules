@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+SHELL=/bin/bash
+
+package=rnf-backend
+
+clean:
+	rm -rf DEBIAN/rnf-backend
+
+build:
+	mkdir -p DEBIAN/rnf-backend/opt/rnf/scripts
+	mkdir -p DEBIAN/rnf-backend/etc/systemd/system/
+	pyinstaller main.py -n api
+	cp -r dist/api/* DEBIAN/rnf-backend/opt/rnf/
+	cp scripts/*.sh DEBIAN/rnf-backend/opt/rnf/scripts
+	cp -r systemd/*.service DEBIAN/rnf-backend/etc/systemd/system/
+	chmod +x DEBIAN/rnf-backend/opt/rnf/scripts/*.sh
+
+binary:
+	dh_install
+	dh_installdeb
+	dh_gencontrol
+	dh_fixperms
+	dh_md5sums
+	dh_builddeb
