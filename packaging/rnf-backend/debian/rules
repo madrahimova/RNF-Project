@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+SHELL=/bin/bash
+
+package=rnf-backend
+
+clean:
+	dh_clean
+	rm -rf debian/rnf-backend
+
+build:
+	mkdir -p debian/rnf-backend/opt/rnf/scripts
+	mkdir -p debian/rnf-backend/etc/systemd/system/
+	cp -r dist/api/* debian/rnf-backend/opt/rnf/
+	cp scripts/*.sh debian/rnf-backend/opt/rnf/scripts
+	cp -r systemd/*.service debian/rnf-backend/etc/systemd/system/
+	chmod +x debian/rnf-backend/opt/rnf/scripts/*.sh
+
+binary:
+	dh_install
+	dh_installdeb
+	dh_gencontrol
+	dh_fixperms
+	dh_md5sums
+	dh_builddeb
