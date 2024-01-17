@@ -9,11 +9,12 @@ clean:
 	rm -rf debian/rnf-backend
 
 build:
+	make clean && make
 	mkdir -p debian/rnf-backend/opt/rnf/scripts
-	mkdir -p debian/rnf-backend/etc/systemd/system/
-	cp -r dist/api/* debian/rnf-backend/opt/rnf/
-	cp scripts/*.sh debian/rnf-backend/opt/rnf/scripts
-	cp -r systemd/*.service debian/rnf-backend/etc/systemd/system/
+	mkdir -p debian/rnf-backend/etc/systemd/system
+	cp -r dist/* debian/rnf-backend/opt/rnf/
+	cp ../../scripts/*.sh debian/rnf-backend/opt/rnf/scripts/
+	cp -r ../../systemd/*.service debian/rnf-backend/etc/systemd/system/
 	chmod +x debian/rnf-backend/opt/rnf/scripts/*.sh
 
 binary:
