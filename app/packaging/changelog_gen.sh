@@ -2,12 +2,13 @@
 
 set -e
 
+DEFAULT_VER="0.1"
 VER="$1"
 DATE="$(date -R)"
 CHANGELOG_PATH="rnf-backend/debian/changelog"
 
 if [ "$VER" == "" ]; then
-  VER=0.1
+  VER="$DEFAULT_VER"
 fi
 
 INPUT=`sed "s/VER/$VER/g; s/DATE/$DATE/g" changelog_tmpl`

@@ -1,0 +1,8 @@
+FROM debian:latest
+RUN mkdir -p /app
+
+WORKDIR /app/packaging
+
+COPY app/ /app
+
+CMD ["./build.sh"]

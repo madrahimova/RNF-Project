@@ -2,6 +2,8 @@
 
 set -e
 
+/opt/rnf/scripts/db_bootstrap.sh
+
 systemctl daemon-reload
 systemctl enable rnf.service
 

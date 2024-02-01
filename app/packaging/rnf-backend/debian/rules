@@ -1,7 +1,6 @@
 #!/usr/bin/make -f
 
 SHELL=/bin/bash
-
 package=rnf-backend
 
 clean:
