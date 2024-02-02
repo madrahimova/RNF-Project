@@ -24,7 +24,7 @@ async def get_all_forms():
     return {"data": json.loads(data)}
 
 
-# Получить анкеты c номерами [start, start + n]
+# Получить анкеты на отрезке [start, start + n]
 # Нужно для пагинации
 # NOTE: нумерация идет с 0, но в ответе анкеты с 1
 @app.get("/form/batch")
